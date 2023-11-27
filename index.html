@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+
+<body>
+    <h1>Dementor</h1>
+    <div class="result"></div>
+    <script>
+        let socket = new WebSocket("ws://127.0.0.1:8080");
+
+        socket.onmessage = function (event) {
+            let message = event.data;
+            let messageElem = document.createElement('div');
+            messageElem.textContent = message;
+            document.querySelector('.result').append(messageElem);
+        }
+
+    </script>
+</body>
+
+</html>
